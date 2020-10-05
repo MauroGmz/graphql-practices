@@ -9,8 +9,10 @@ mongoose.connect('mongodb://localhost/graphql-test')
 // mongoDB models
 import Car from './models/Car';
 
-import { graphqlExpress } from 'apollo-server-express'
+import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 import { makeExecutableSchema } from 'graphql-tools';
+import typeDefs from './schema';
+import resolvers from './resolvers';
 
 // settings 
 app.set('port', process.env.PORT || 3000);
@@ -26,7 +28,11 @@ app.use('/graphql', express.json(), graphqlExpress({
     context: {
         Car
     }
-}))
+}));
+
+app.use('/graphiql', graphiqlExpress({
+    endpointUrl: '/graphql'
+}));
 
 
 // start the server
