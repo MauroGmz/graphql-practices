@@ -38,6 +38,7 @@ const typeDefs = `
         deleteUser(_id: ID): User
         updateUser(_id: ID, input: UserInput): User
         createCar(input: CarInput): Car
+        updateCar(_id: ID, input: CarInput): Car
     }
 
     input TaskInput {

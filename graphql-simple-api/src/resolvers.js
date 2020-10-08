@@ -42,6 +42,9 @@ export const resolvers = {
             const newCar = new Car(input);
             await newCar.save();
             return newCar;
+        },
+        async updateCar(_, { _id, input }) {
+            return await Car.findByIdAndUpdate(_id, input, { new: true });
         }
     }
 };
