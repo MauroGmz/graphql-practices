@@ -18,3 +18,24 @@ export const tasks = [
         number: 100
     }
 ]
+
+export const cars = [
+    {
+        _id: 0,
+        model: 'Ertiga',
+        brand: 'Maruti',
+        color: 'Mehroon'
+    },
+    {
+        _id: 1,
+        model: 'XUV500',
+        brand: 'Mahindra',
+        color: 'black'
+    },
+    {
+        _id: 2,
+        model: 'Swift',
+        brand: 'Maruti',
+        color: 'Red'
+    }
+]

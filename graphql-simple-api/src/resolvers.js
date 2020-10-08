@@ -45,6 +45,9 @@ export const resolvers = {
         },
         async updateCar(_, { _id, input }) {
             return await Car.findByIdAndUpdate(_id, input, { new: true });
+        },
+        async deleteCar(_, { _id }) {
+            return await Car.findOneAndDelete(_id);
         }
     }
 };
