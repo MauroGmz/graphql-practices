@@ -1,6 +1,7 @@
 import { tasks } from "./sample";
 
 import User from "./models/User";
+import Car from "./models/Car";
 
 export const resolvers = {
     Query: {
@@ -15,6 +16,9 @@ export const resolvers = {
         },
         async Users() {
             return await User.find();
+        },
+        async Cars() {
+            return await Car.find();
         }
     },
     Mutation: {
@@ -33,6 +37,11 @@ export const resolvers = {
         },
         async updateUser(_, { _id, input }) {
             return await User.findByIdAndUpdate(_id, input, { new: true });
+        },
+        async createCar(_, { input }) {
+            const newCar = new Car(input);
+            await newCar.save();
+            return newCar;
         }
     }
 };

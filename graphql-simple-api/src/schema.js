@@ -8,6 +8,7 @@ const typeDefs = `
         greet(name: String!): String
         tasks: [Task]
         Users: [User]
+        Cars: [Car]
     }
 
     type Task {
@@ -24,11 +25,19 @@ const typeDefs = `
         age: Int!
     }
 
+    type Car {
+        _id: ID
+        model: String!
+        brand: String!
+        color: String
+    }
+
     type Mutation {
         createTask(input: TaskInput): Task
         createUser(input: UserInput): User
         deleteUser(_id: ID): User
         updateUser(_id: ID, input: UserInput): User
+        createCar(input: CarInput): Car
     }
 
     input TaskInput {
@@ -41,6 +50,12 @@ const typeDefs = `
         firstname: String!
         lastname: String!
         age: Int!
+    }
+
+    input CarInput {
+        model: String!
+        brand: String!
+        color: String
     }
 
 `;
